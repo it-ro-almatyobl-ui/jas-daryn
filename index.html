@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Жас Дарын</title>
+
+<style>
+
+/* ================= BODY ================= */
+body {
+  margin:0;
+  font-family: Arial;
+  background:#f5f7fa;
+  padding-top:140px;
+  padding-bottom:80px;
+}
+
+/* ================= HEADER ================= */
+header {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:#0a3d62;
+  color:white;
+  display:flex;
+  align-items:center;
+  padding:10px 15px;
+  z-index:1000;
+  gap:10px;
+}
+
+header img { height:55px; }
+
+header h2 { margin:0; font-size:16px; }
+
+header p { margin:3px 0 0 0; font-size:13px; opacity:0.9; }
+
+/* ================= MENU ================= */
+nav {
+  position: fixed;
+  top:70px;
+  left:0;
+  width:100%;
+  background:#1e5f8a;
+  padding:10px;
+  text-align:center;
+  z-index:999;
+}
+
+nav a {
+  color:white;
+  margin:0 10px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+}
+
+/* ================= CONTENT ================= */
+.container {
+  padding:20px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ================= 🏠 БАСТЫ БЕТ (ҮЛКЕН) ================= */
+.news-img {
+  width:100%;
+  max-width:650px;
+  height:380px;
+  object-fit:cover;
+  border-radius:14px;
+}
+
+/* ================= 🏢 ҚҰРЫЛЫМ + ХАТТАМА (БІРДЕЙ ОРТАША) ================= */
+#structure img,
+#docs-list img {
+  width:200px;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  display:block;
+  margin:auto;
+}
+
+/* карточка ішіндегі жалпы стиль */
+.card.small img {
+  width:200px;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+}
+.card.small {
+  width: 200px;
+}
+
+/* ================= ROW ================= */
+.row {
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* ================= TITLE ================= */
+h3 {
+  color:#0a3d62;
+  border-left:5px solid #1e5f8a;
+  padding-left:10px;
+}
+
+/* ================= FOOTER ================= */
+.fixed-bar {
+  position: fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#0a3d62;
+  color:white;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  padding:10px;
+  z-index:9999;
+  font-size:13px;
+}
+
+.fixed-bar a {
+  color:white;
+  text-decoration:none;
+  margin:0 5px;
+}
+
+/* ================= PAGES ================= */
+.page {
+  display:none;
+}
+
+.page {
+  display:none;
+  animation: fade 0.4s ease;
+}
+
+.page.active {
+  display:block;
+  animation: fade 0.4s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity:0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+
+</style>
+
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <img src="logo.png">
+  <div>
+    <h2>Алматы облысының білім басқармасы</h2>
+    <p>«Жас дарын» облыстық ғылыми-практикалық орталығы</p>
+  </div>
+</header>
+
+<!-- MENU -->
+<nav>
+  <a href="#" onclick="showPage('home')">Басты бет</a>
+  <a href="#" onclick="showPage('structure')">Құрылым</a>
+  <a href="#" onclick="showPage('hatamalar')">Хаттамалар</a>
+  <a href="https://drive.google.com/drive/folders/1S0lsoGJUT0HFQ-W4lz1aZaEnEgQbYed7?usp=sharing" target="_blank">Іс-шаралар</a>
+  <a href="https://drive.google.com/drive/folders/1w9KL0PfcTOM2yK84_0oQqEONdKZ8aGF1?usp=sharing" target="_blank">Құжаттар</a>
+</nav>
+
+<!-- NEWS -->
+<div id="home" class="page active">
+  <div class="container">
+    <h2>Жаңалықтар</h2>
+    <div id="news"></div>
+  </div>
+</div>
+
+<!-- STRUCTURE -->
+<div id="structure" class="page">
+  <div class="container">
+
+    <h2>Құрылым</h2>
+
+    <!-- БАСШЫЛЫҚ -->
+    <h3>Басшылық</h3>
+
+    <div class="card">
+      <img src="https://lh3.googleusercontent.com/d/1WrGGAwdd9T4Iaz_lW12MLi4JUjhmtnzO">
+      <h4>Орталық директоры</h4>
+      <p>Сеильбеков Нұржан Тұрғанбайұлы</p>
+    </div>
+
+    <!-- ОРЫНБАСАРЛАР -->
+    <h3>Директордың орынбасарлары</h3>
+
+    <div class="row">
+
+      <div class="card small">
+        <img src="https://lh3.googleusercontent.com/d/1jChx7b2tsDNJDSiVf5OiqYLxjnFyWwTt">
+        <p>Сарсембаева Саулет Жумахановна</p>
+      </div>
+
+      <div class="card small">
+        <img src="https://lh3.googleusercontent.com/d/1Wlwl_T8sgXYVY5GIF44xjZc9pngRGQsw">
+        <p>Асылбек Рахым Асылбекұлы</p>
+      </div>
+
+    </div>
+
+    <!-- БӨЛІМДЕР -->
+    <h2>Бөлімдер</h2>
+
+    <div class="row">
+
+      <div class="card small">
+        <h4>Жобалау қызметі және шығармашылықты дамыту бөлімі</h4>
+        <h5>Бөлім басшысы</h5>
+        <img src="https://lh3.googleusercontent.com/d/1ieCSPCwiK3Wxthn3jky-ei-of7TRarlt">
+        <p>Бесбаева Гульнара</p>
+        <p>📞 +7 775 451 59 24</p>
+        <hr>
+        <h5>Мамандар</h5>
+        <img src="https://lh3.googleusercontent.com/d/12kdqxrilMQlZb_v0ugvXZxbNkRA9_ybp">
+        <p>Омарбеков Айхан</p>
+      </div>
+
+      <div class="card small">
+        <h4>Зияткерлік шаралар бөлімі</h4>
+        <h5>Бөлім басшысы</h5>
+        <img src="https://lh3.googleusercontent.com/d/1DqBAzphABSKfgNDk7NXJ-eJ-zSqkoU4P">
+        <p>Таджиева Мадина</p>
+        <p>📞 +7 708 673 32 39</p>
+        <hr>
+        <h5>Мамандар</h5>
+        <img src="https://lh3.googleusercontent.com/d/18y89OoNbtmAb9vxx_HsR6r0CUYYTvKTE">
+        <p>Жұмаш Сұлтан</p>
+      </div>
+
+      <div class="card small">
+        <h4>Педагогикалық шеберлік бөлімі</h4>
+        <h5>Бөлім басшысы</h5>
+        <img src="https://lh3.googleusercontent.com/d/1bbTd0HLRfZqDxsZfdvchMuED1Yl_OXY1">
+        <p>Сулейменова Кымбат</p>
+        <p>📞 +7 771 401 71 64</p>
+        <hr>
+        <h5>Мамандар</h5>
+        <img src="https://lh3.googleusercontent.com/d/1bWlG_WzwzF78Rfc4SnlzTwjAYFhZozux">
+        <p>Молдахан Мәдина</p>
+      </div>
+
+      <div class="card small">
+        <h4>"Ел үміті" бастамасын жүзеге асыру және мониторингілеу бөлімі</h4>
+        <h5>Бөлім басшысы</h5>
+        <img src="https://lh3.googleusercontent.com/d/1-gII_zwJrtsZH5S0EX1cUPyID7UTI-a6">
+        <p>Кайыржанов Нұржігіт</p>
+        <p>📞 +7 702 476 77 13</p>
+        <hr>
+        <h5>Мамандар</h5>
+        <img src="https://lh3.googleusercontent.com/d/138dF0_yFqRRwHqBtdqncm4AtWWqVjNRW">
+        <p>Сатыбалды Еламан</p>
+      </div>
+
+      <div class="card small">
+        <h4>Медиа сүйемелдеу бөлімі</h4>
+        <h5>Бөлім басшысы</h5>
+        <img src="https://lh3.googleusercontent.com/d/1pIyFyJcDdJ4ovZojhVKSCa5uADAkcjms">
+        <p>Даулетова Ардак</p>
+        <p>📞 +7 771 191 54 67</p>
+        <hr>
+        <h5>Мамандар</h5>
+        <img src="https://lh3.googleusercontent.com/d/1sr0HHmD9ImiBcPhEEQXg6nSsOHsvPDYI">
+        <p>Рысбаев Самат</p>
+      </div>
+
+      <div class="card small">
+        <h4>IT бөлімі</h4>
+        <h5>Бөлім басшысы</h5>
+        <img src="https://lh3.googleusercontent.com/d/1QYtB16dZPy9YSe29Z3_giE8He4z9ya6v">
+        <p>Асқатбек Айдар Жүкенұлы</p>
+        <p>📞 +7 777 777 77 77</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- HATAMALAR -->
+<div id="hatamalar" class="page">
+  <div class="container">
+    <h2>Хаттамалар</h2>
+    <div id="docs-list"></div>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+ function buildMedia(link){
+
+  if(!link) return "";
+
+  link = link.trim();
+
+  // 🎥 YouTube
+  let match = link.match(/(?:youtube\.com.*v=|youtu\.be\/)([^&]+)/);
+
+  if(match){
+    return `
+      <iframe class="news-img"
+        src="https://www.youtube.com/embed/${match[1]}"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    `;
+  }
+
+  // 🎬 Google Drive VIDEO 👇
+  if(link.includes("drive.google.com")){
+  let id = link.split("/d/")[1]?.split("/")[0];
+
+  return `
+    <iframe class="news-img"
+      src="https://drive.google.com/file/d/${id}/preview?autoplay=1&mute=1"
+      allow="autoplay">
+    </iframe>
+  `;
+}
+
+  // 🎬 MP4 direct
+  if(link.includes(".mp4")){
+    return `
+      <video class="news-img" controls>
+        <source src="${link}" type="video/mp4">
+      </video>
+    `;
+  }
+
+  // 🖼 image
+  return `<img class="news-img" src="${link}">`;
+}
+
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+  });
+
+  document.getElementById(pageId).classList.add('active');
+}
+
+// NEWS
+fetch("https://opensheet.elk.sh/1K8hBvvjb8mc3PGkHs_pxB_BY_hHHdR7NGGK0fwBn0lo/News")
+.then(res => res.json())
+.then(data => {
+ let html = "";
+
+ data.forEach(item => {
+  html += `
+  <div class="card">
+    <h3>${item.title}</h3>
+    ${buildMedia(item.image)}
+    <p>${item.description}</p>
+  </div>`;
+ });
+ document.getElementById("news").innerHTML = html;
+});
+
+// HATAMALAR
+fetch("https://opensheet.elk.sh/1K8hBvvjb8mc3PGkHs_pxB_BY_hHHdR7NGGK0fwBn0lo/Docs")
+.then(res => res.json())
+.then(data => {
+ let html = "";
+ data.forEach(item => {
+   html += `
+   <div class="card">
+     <h3>${item.title}</h3>
+     <img src="${item.image}">
+     <p>${item.description}</p>
+   </div>`;
+ });
+ document.getElementById("docs-list").innerHTML = html;
+});
+
+</script>
+
+<!-- FOOTER -->
+<div class="fixed-bar">
+  <div>📞 +7 771 191 54 67</div>
+  <div>📍 Алматы облысы Қонаев қаласы №3 орта мектеп</div>
+  <div>
+    <a href="https://www.instagram.com/jas__daryn?igsh=YWtnemVmc2ZuZHI4" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/@jasdaryn8505" target="_blank">YouTube</a>
+  </div>
+</div>
+
+</body>
+</html>
