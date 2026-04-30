@@ -37,7 +37,22 @@ header {
   gap:10px;
 }
 
-header img { height:55px; }
+header img {
+  height: 55px;
+  animation: flipLogo 6s infinite;
+  transform-origin: center;
+}
+
+@keyframes flipLogo {
+  0%   { transform: rotateY(0deg); }
+  40%  { transform: rotateY(0deg); }
+
+  50%  { transform: rotateY(180deg); }
+
+  60%  { transform: rotateY(0deg); }
+
+  100% { transform: rotateY(0deg); }
+}
 
 header h2 { margin:0; font-size:16px; }
 
