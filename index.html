@@ -210,6 +210,29 @@ h3 {
   transform: translateY(0);
 }
 
+/* ===== NEWS LEFT/RIGHT ANIMATION ===== */
+
+.news-item {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 0.6s ease;
+}
+
+/* оң жақтан */
+.news-item.right {
+  transform: translateX(60px);
+}
+
+/* сол жақтан */
+.news-item.left {
+  transform: translateX(-60px);
+}
+
+/* көрінгенде */
+.news-item.active {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 </style>
 
@@ -422,15 +445,27 @@ fetch("https://opensheet.elk.sh/1K8hBvvjb8mc3PGkHs_pxB_BY_hHHdR7NGGK0fwBn0lo/New
 .then(data => {
  let html = "";
 
- data.forEach(item => {
+ data.forEach((item, index) => {
+
+  // 🔥 кезекпен сол/оң
+  let side = (index % 2 === 0) ? "left" : "right";
+
   html += `
-  <div class="card">
+  <div class="card news-item ${side}">
     <h3>${item.title}</h3>
     ${buildMedia(item.image)}
     <p>${item.description}</p>
   </div>`;
  });
+
  document.getElementById("news").innerHTML = html;
+
+ // 🔥 animation trigger
+ setTimeout(() => {
+   document.querySelectorAll(".news-item").forEach(el => {
+     el.classList.add("active");
+   });
+ }, 100);
 });
 
 // HATAMALAR
