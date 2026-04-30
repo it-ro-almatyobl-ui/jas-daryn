@@ -171,6 +171,29 @@ h3 {
     transform: translateY(0);
   }
 }
+.card {
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* accordion smooth */
+.accordion {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+}
+
+.accordion.active {
+  max-height: 2000px;
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 </style>
